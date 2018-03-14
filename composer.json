@@ -17,5 +17,12 @@
 		"psr-4": {
 			"Gilbitron\\LaravelQueueMonitor\\": "/src"
 		}
+	},
+	"extra": {
+		"laravel": {
+			"providers": [
+				"Gilbitron\\LaravelQueueMonitor\\LaravelQueueMonitorProvider"
+			]
+		}
 	}
 }
