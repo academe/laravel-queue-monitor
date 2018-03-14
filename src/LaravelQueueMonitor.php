@@ -61,20 +61,21 @@ class LaravelQueueMonitor
     protected function jobStarted(Job $job)
     {
         DB::table('queue_monitor')->insert([
-            'job_id'     => $this->getJobId($job),
-            'name'       => $job->resolveName(),
-            'queue'      => $job->getQueue(),
-            'started_at' => Carbon::now(),
+            'job_id'        => $this->getJobId($job),
+            'name'          => $job->resolveName(),
+            'queue'         => $job->getQueue(),
+            'started_at'    => Carbon::now(),
+            'payload'       => $job->getRawBody(),
         ]);
     }
 
     protected function jobFinished(Job $job, $failed = false, $exception = null)
     {
         $queueMonitor = DB::table('queue_monitor')
-                          ->where('job_id', $this->getJobId($job))
-                          ->orderBy('started_at', 'desc')
-                          ->limit(1)
-                          ->first();
+            ->where('job_id', $this->getJobId($job))
+            ->orderBy('started_at', 'desc')
+            ->limit(1)
+            ->first();
 
         if (!$queueMonitor) {
             return;
