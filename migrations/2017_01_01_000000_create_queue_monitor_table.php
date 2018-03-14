@@ -24,7 +24,6 @@ class CreateQueueMonitorTable extends Migration
             $table->integer('attempt')->default(0);
             $table->text('exception')->nullable();
             $table->text('data')->nullable();
-            $table->text('payload')->nullable(); // TODO: make this an update to allow upgrades
         });
     }
 
