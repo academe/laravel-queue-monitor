@@ -74,7 +74,7 @@ class LaravelQueueMonitor
         $queueMonitor = DB::table('queue_monitor')
             ->where('job_id', $this->getJobId($job))
             ->orderBy('started_at', 'desc')
-            ->limit(1)
+            ->orderBy('id', 'desc')
             ->first();
 
         if (!$queueMonitor) {

@@ -18,17 +18,25 @@ class QueueMonitor extends Model
         'queue',
         'started_at',
         'payload',
+        'started_at',
         'finished_at',
         'time_elapsed',
         'failed',
         'attempt',
         'exception',
+        'data',
     ];
 
+    /**
+     * Automatic casting.
+     */
     protected $casts = [
         'payload' => 'json',
     ];
 
+    /**
+     * @return Illuminate\Bus\Queueable the command that was dispatched to the queue
+     */
     public function getCommandAttribute()
     {
         $payload = $this->payload;
@@ -39,6 +47,8 @@ class QueueMonitor extends Model
             try {
                 return unserialize($command);
             } catch (\Exception $e) {
+                // Unable to unserialize, so just return the raw string.
+                return $payload;
             }
         }
     }
