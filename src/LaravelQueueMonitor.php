@@ -77,12 +77,12 @@ class LaravelQueueMonitor
             ->orderBy('id', 'desc')
             ->first();
 
-        if (!$queueMonitor) {
+        if (! $queueMonitor) {
             return;
         }
 
-        $now         = Carbon::now();
-        $timeElapsed = Carbon::parse($queueMonitor->started_at)->diff($now);
+        $now            = Carbon::now();
+        $timeElapsed    = Carbon::parse($queueMonitor->started_at)->diff($now);
 
         DB::table('queue_monitor')->where('id', $queueMonitor->id)->update([
             'finished_at'  => $now,

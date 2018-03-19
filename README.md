@@ -1,6 +1,7 @@
 # Laravel Queue Monitor
 
-A Laravel package to monitor queue jobs. Logs certain information about [queue jobs](https://laravel.com/docs/5.3/queues) in a database table:
+A Laravel package to monitor queue jobs. Logs certain information about
+[queue jobs](https://laravel.com/docs/5.3/queues) in a database table:
 
 * The elapsed time of the job including start and finish timestamps
 * If `--tries` is being used the attempt number for each job
@@ -9,7 +10,7 @@ A Laravel package to monitor queue jobs. Logs certain information about [queue j
 
 ## Requirements
 
-* Laravel 5.3+
+* Laravel 5.5+
 
 ## Install
 
@@ -19,7 +20,12 @@ Install the composer package:
 composer require gilbitron/laravel-queue-monitor
 ```
 
-Add the service provider in `config/app.php`:
+**Note**: This branch is at git@github.com:academe/laravel-queue-monitor.git dev-master,
+so unless this branch is merged, or the package name is changed, you will need to add
+a `repository` entry to your `composer.json`.
+
+
+Add the service provider in `config/app.php` ( this step is not necessary for Laravel 5.5+):
 
 ```php
 /*
@@ -36,11 +42,13 @@ php artisan migrate
 
 ## Usage
 
-All queue jobs will now be monitored and results stored to the `queue_monitor` database table. No other configuration is required.
+All queue jobs will now be monitored and results stored to the `queue_monitor` database table.
+No other configuration is required.
 
 ### Custom Data
 
-To save custom data with the queue monitor results you need to include the `QueueMonitorData` trait in your Job and use the `saveQueueMonitorData()` method. For example:
+To save custom data with the queue monitor results you need to include the `QueueMonitorData`
+trait in your Job and use the `saveQueueMonitorData()` method. For example:
 
 ```php
 <?php
