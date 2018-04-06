@@ -12,18 +12,19 @@ A Laravel package to monitor queue jobs. Logs certain information about
 
 * Laravel 5.5+
 
+*This is a fork of
+[gilbitron/laravel-queue-monitor](https://github.com/gilbitron/laravel-queue-monitor)
+I had some specific project requirements, but but no time to generate separate PRs for
+each change I've made to the original project, and no guarantee they would be accepted.
+So chose your branch according to your requirements :-)*
+
 ## Install
 
 Install the composer package:
 
 ```php
-composer require gilbitron/laravel-queue-monitor
+composer require academe/laravel-queue-monitor
 ```
-
-**Note**: This branch is at git@github.com:academe/laravel-queue-monitor.git dev-master,
-so unless this branch is merged, or the package name is changed, you will need to add
-a `repository` entry to your `composer.json`.
-
 
 Add the service provider in `config/app.php` ( this step is not necessary for Laravel 5.5+):
 
@@ -31,7 +32,7 @@ Add the service provider in `config/app.php` ( this step is not necessary for La
 /*
  * Package Service Providers...
  */
-Gilbitron\LaravelQueueMonitor\LaravelQueueMonitorProvider::class,
+Academe\LaravelQueueMonitor\LaravelQueueMonitorProvider::class,
 ```
 
 Run a migration to setup the `queue_monitor` database table:
@@ -55,7 +56,7 @@ trait in your Job and use the `saveQueueMonitorData()` method. For example:
 
 namespace App\Jobs;
 
-use Gilbitron\LaravelQueueMonitor\Jobs\QueueMonitorData;
+use Academe\LaravelQueueMonitor\Jobs\QueueMonitorData;
 use Illuminate\Bus\Queueable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Queue\InteractsWithQueue;

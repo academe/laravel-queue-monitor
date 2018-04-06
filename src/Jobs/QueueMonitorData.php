@@ -1,6 +1,6 @@
 <?php
 
-namespace Gilbitron\LaravelQueueMonitor\Jobs;
+namespace Academe\LaravelQueueMonitor\Jobs;
 
 use DB;
 
@@ -23,12 +23,12 @@ trait QueueMonitorData
         }
 
         $queueMonitor = DB::table('queue_monitor')
-                          ->where('job_id', $jobId)
-                          ->orderBy('started_at', 'desc')
-                          ->limit(1)
-                          ->first();
+            ->where('job_id', $jobId)
+            ->orderBy('started_at', 'desc')
+            ->limit(1)
+            ->first();
 
-        if (!$queueMonitor) {
+        if (! $queueMonitor) {
             return;
         }
 

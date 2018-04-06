@@ -1,6 +1,6 @@
 <?php
 
-namespace Gilbitron\LaravelQueueMonitor\Models;
+namespace Academe\LaravelQueueMonitor\Models;
 
 /**
  * Queue monitor.

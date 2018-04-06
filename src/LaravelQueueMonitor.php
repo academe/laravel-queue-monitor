@@ -1,6 +1,6 @@
 <?php
 
-namespace Gilbitron\LaravelQueueMonitor;
+namespace Academe\LaravelQueueMonitor;
 
 use Carbon\Carbon;
 use DB;
