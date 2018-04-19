@@ -12,6 +12,11 @@ class QueueMonitor extends Model
 {
     protected $table = 'queue_monitor';
 
+    /**
+     * Disable Laravel timestamps (on by default).
+     */
+    public $timestamps = false;
+
     protected $fillable = [
         'job_id',
         'name',
@@ -51,5 +56,16 @@ class QueueMonitor extends Model
                 return $payload;
             }
         }
+    }
+
+    /**
+     * Filter for a given job ID.
+     * Order by the latest first, in case there are duplicates.
+     */
+    public function scopeForJobId($query, $jobId) {
+        $query
+            ->where('job_id', $jobId)
+            ->orderBy('started_at', 'desc')
+            ->orderBy('id', 'desc');
     }
 }

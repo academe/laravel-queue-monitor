@@ -26,7 +26,7 @@ Install the composer package:
 composer require academe/laravel-queue-monitor
 ```
 
-Add the service provider in `config/app.php` ( this step is not necessary for Laravel 5.5+):
+Add the service provider in `config/app.php` (this step is not necessary for Laravel 5.5+):
 
 ```php
 /*

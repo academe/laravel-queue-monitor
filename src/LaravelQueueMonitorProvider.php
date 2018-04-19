@@ -15,7 +15,9 @@ class LaravelQueueMonitorProvider extends ServiceProvider
     {
         $basePath = __DIR__ . '/..';
 
-        $this->loadMigrationsFrom($basePath . '/migrations');
+        $this->loadMigrationsFrom($basePath . '/migrations', 'migrations');
+
+        // CHECKME: should this be in the register method?
 
         $this->app->make(LaravelQueueMonitor::class)->register();
     }
