@@ -1,3 +1,8 @@
+[![Latest Stable Version](https://poser.pugx.org/academe/laravel-queue-monitor/v/stable)](https://packagist.org/packages/academe/laravel-queue-monitor)
+[![Total Downloads](https://poser.pugx.org/academe/laravel-queue-monitor/downloads)](https://packagist.org/packages/academe/laravel-queue-monitor)
+[![Latest Unstable Version](https://poser.pugx.org/academe/laravel-queue-monitor/v/unstable)](https://packagist.org/packages/academe/laravel-queue-monitor)
+[![License](https://poser.pugx.org/academe/laravel-queue-monitor/license)](https://packagist.org/packages/academe/laravel-queue-monitor)
+
 # Laravel Queue Monitor
 
 A Laravel package to monitor queue jobs. Logs certain information about
