@@ -10,6 +10,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class QueueMonitor extends Model
 {
+    // Needed to support microtime.
+
+    protected $dateFormat = 'Y-m-d H:i:s.u';
+
     protected $table = 'queue_monitor';
 
     /**

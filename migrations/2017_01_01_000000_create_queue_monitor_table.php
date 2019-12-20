@@ -13,12 +13,12 @@ class CreateQueueMonitorTable extends Migration
     public function up()
     {
         Schema::create('queue_monitor', function (Blueprint $table) {
-            $table->increments('id');
+            $table->bigIncrements('id');
             $table->string('job_id')->index();
             $table->string('name')->nullable();
             $table->string('queue')->nullable();
-            $table->timestamp('started_at')->nullable()->index();
-            $table->timestamp('finished_at')->nullable();
+            $table->timestamp('started_at', 6)->nullable()->index();
+            $table->timestamp('finished_at', 6)->nullable();
             $table->integer('time_elapsed')->nullable()->index();
             $table->boolean('failed')->default(false)->index();
             $table->integer('attempt')->default(0);
